@@ -1,0 +1,237 @@
+/* uso de variables para todo el documento */
+/*estilo de letra para el encabezado y pie de pagina*/
+@font-face {
+    font-family: 'textvideo';
+    src: url("../assets/fonts/Raleway-VariableFont_wght.ttf");
+}
+
+:root {
+    /*Paleta de colores*/
+    --azules-1: #2C63A4;
+    --azules-2: #6B798A;
+    --azules-3: #517396;
+    --azules-4: #0A5DC1;
+    --azules-5: #024FAC;
+    --amaril-1: #FBD933;
+    --amaril-2: #D2CA9F;
+    --amaril-3: #EFD971;
+    --amaril-4: #FFD300;
+    --rojos-1: #FB6333;
+    --rojos-2: #FF3D00;
+    --negro-1: #333;
+    --background-color: #f4f4f4;
+    --font-s: 12px;
+    --font-m: 16px;
+    --font-l: 20px;
+    --bs-body-font-family: textvideo, Arial, Helvetica, sans-serif;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: var(--bs-body-font-family);
+    background: var(--amaril-2);
+}
+
+/* Estilos personales*/
+.mb-100 {
+    margin-bottom: 100px;
+}
+
+/* Estilos Header */
+.contenedor-cabecera {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 100px;
+    align-items: center;
+    padding: 0 1rem;
+    background: var(--azules-5);
+}
+.link-logo {
+    text-decoration: none;
+    color: var(--rojos-1);
+}
+.link-logo:hover {
+    cursor: pointer;
+    color: var(--amaril-3);
+}
+.items-menu {
+    display:flex;
+    gap: 1.3rem
+}
+.ancla {
+    text-decoration: none;
+    color: var(--rojos-1);
+}
+.ancla:hover{
+    cursor: pointer;
+    color: var(--amaril-3);
+}
+.contenedor-icono-menu {
+    display: none;
+}
+.icono-menu {
+    color: var(--rojos-1);
+    background: none;
+    border: none;
+}
+/* menu modal */
+.menu-modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    inset: 0;
+    background: rgba(0, 0, 0);
+}
+.menu-contenido {
+    background: #111;
+    width: 100%;
+    height: 100%;
+    color: white;
+}
+
+/* Estilos Main*/
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.seccion-uno {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-height: 60vh;
+    background: url(../assets/images/hosting-horizontal.jpg) no-repeat center center / cover;
+}
+.titulo-seccion-uno {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--background-color);
+}
+
+.seccion-dos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+}
+
+.seccion {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+}
+
+.seccion-inversa {
+    flex-direction: row-reverse;
+}
+
+.sub-titulo {
+    font-weight: bold;
+    color: var(--rojos-1);
+    font-size: var(--font-l);
+}
+
+.seccion-imagen {
+    flex: 1;
+    height: 60%;
+}
+
+.imagen {
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.texto {
+    flex: 1;
+}
+
+/* Estilos Footer*/
+footer {
+    display: flex;
+    flex-direction: column;
+    height: 150px;
+    background: var(--azules-5);
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    gap: .3rem;
+    justify-content: center;
+}
+.titulo-pie {
+    color: var(--rojos-1);
+}
+.contenedor-iconos {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: center;
+}
+.contenedor-iconos i {
+    color: var(--rojos-1);
+    font-size: 1.6rem;
+}
+.contenedor-iconos i:hover {
+    color: var(--amaril-3);
+}
+.pie-direccion-derechos{
+    text-align: center;
+    color: var(--rojos-1);
+}
+
+
+
+/* Media Queries */
+@media (orientation: portrait) {
+    .seccion-uno {
+        background: url(../assets/images/hoating-vertical.jpg) no-repeat center center / cover;
+    }
+}
+
+@media (max-width: 768px) {
+    .items-menu {
+        display: none;
+    }
+    .contenedor-icono-menu {
+        display: contents;
+    }
+    .seccion-dos {
+        width: 90%;
+    }
+
+}
+
+@media (max-width: 480px) {
+    .items-menu {
+        display: none;
+    }
+    .contenedor-icono-menu {
+        display: contents;
+    }
+    .seccion-dos {
+        width: 90%;
+    }
+    .seccion {
+        flex-direction: column;
+    }
+    .imagen {
+        width: 100%;
+    }
+}
