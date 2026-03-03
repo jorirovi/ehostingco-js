@@ -42,10 +42,17 @@ function menuModal() {
     $menuMod.classList.add('menu-modal');
     const $menucont = d.createElement('div');
     $menucont.classList.add('menu-contenido');
+    const $menuHeader = d.createElement('div');
+    $menuHeader.classList.add('menu-header');
+    const $menuIcono = d.createElement('h2');
+    $menuIcono.classList.add('menu-modal-icono');
+    $menuIcono.textContent = nombreEmpresa;
     const $spanMenu = d.createElement('span');
     $spanMenu.id = 'cerrarMenu';
-    $spanMenu.classList.add('material-symbols-outlined', 'cerrar');
+    $spanMenu.classList.add('material-symbols-outlined');
     $spanMenu.textContent = 'close';
+    const $contenNav = d.createElement('div');
+    $contenNav.classList.add('modal-navegador');
     const $navMenu = d.createElement('nav');
     const $ul = d.createElement('ul');
     itemsMenu.forEach(i => {
@@ -57,8 +64,15 @@ function menuModal() {
         $ul.appendChild($li);
     });
     $navMenu.appendChild($ul);
-    $menucont.append($navMenu, $spanMenu);
+    $contenNav.appendChild($navMenu);
+    $menuHeader.append($menuIcono, $spanMenu)
+    $menucont.append($menuHeader, $contenNav);
     $menuMod.appendChild($menucont);
+
+    $spanMenu.addEventListener('click', () => {
+        $menuMod.style.display = 'none';
+    });
+    
     return $menuMod;
 }
 
