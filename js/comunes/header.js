@@ -43,7 +43,7 @@ function menuModal() {
     const $menucont = d.createElement('div');
     $menucont.classList.add('menu-contenido');
     const $menuHeader = d.createElement('div');
-    $menuHeader.classList.add('menu-header');
+    $menuHeader.classList.add('menu-header', 'mb-50');
     const $menuIcono = d.createElement('h2');
     $menuIcono.classList.add('menu-modal-icono');
     $menuIcono.textContent = nombreEmpresa;
@@ -72,7 +72,7 @@ function menuModal() {
     $spanMenu.addEventListener('click', () => {
         $menuMod.style.display = 'none';
     });
-    
+
     return $menuMod;
 }
 
@@ -93,7 +93,6 @@ function myHeader(){
     cabecera.append($linkP, myMenu, $contentIconoMenu);
 
     $menuIco.addEventListener('click', () => {
-        console.log('hola Mundo');
         const myMenuModal = menuModal();
         d.body.appendChild(myMenuModal);
         myMenuModal.style.display = 'block';
