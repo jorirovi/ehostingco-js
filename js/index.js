@@ -1,5 +1,6 @@
 import { footerPages } from "./comunes/footer.js";
 import { headerPages } from "./comunes/header.js";
+import { obtenerNoticias } from "./servicios/noticias.js";
 
 //Constantes y variables
 const d = document;
@@ -59,12 +60,47 @@ $imagenM.loading = 'lazy';
 $imagenM.classList.add('imagen');
 $seccionImgM.appendChild($imagenM);
 $mision.append($seccionImgM, $misionTexto);
-
 $seccionVisMis.append($vision, $mision);
+
 //contenido de Noticias
+const noticias = await obtenerNoticias();
+console.log(noticias);
+$seccionNoticias.classList.add('seccion-noticias', 'mb-100');
+const $noticiasTitulo = d.createElement('div');
+$noticiasTitulo.classList.add('noticias-titulo')
 const $subTitulo3 = d.createElement('h2');
-$subTitulo3.textContent = 'Noticias';
-$seccionNoticias.appendChild($subTitulo3);
+$subTitulo3.textContent = 'Noticias Tech';
+$noticiasTitulo.appendChild($subTitulo3);
+const $noticiasCont = d.createElement('div');
+$noticiasCont.classList.add('noticias-contenedor') 
+const $ul = d.createElement('ul');
+noticias.forEach(noticia => {
+    const $li = d.createElement('li');
+    const $card = d.createElement('div');
+    $card.classList.add('card-noticia');
+    const $cardImgCont = d.createElement('div');
+    $cardImgCont.classList.add('card-noticia-img-contenedor');
+    const $cardImg = d.createElement('img');
+    $cardImg.src = noticia.image;
+    $cardImg.height = 75;
+    $cardImg.width = 150;
+    $cardImg.alt = noticia.id;
+    const $cardInfo = d.createElement('div');
+    $cardInfo.classList.add('card-texto-contenedor');
+    const $texto = d.createElement('p');
+    $texto.classList.add('card-texto');
+    $texto.textContent = noticia.title;
+    const $cardBoton = d.createElement('button');
+    $cardBoton.classList.add('card-boton');
+    $cardBoton.textContent = 'Ver mas';
+    $cardInfo.append($texto, $cardBoton);
+    $cardImgCont.appendChild($cardImg);
+    $card.append($cardImgCont, $cardInfo);
+    $li.appendChild($card);
+    $ul.appendChild($li);
+});
+$noticiasCont.appendChild($ul)
+$seccionNoticias.append($noticiasTitulo, $noticiasCont);
 
 principal.append($seccionUno, $seccionVisMis, $seccionNoticias);
 
