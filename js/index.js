@@ -1,5 +1,5 @@
-import { footerPages } from "./comunes/footer.js";
-import { headerPages } from "./comunes/header.js";
+import { myFooter } from "./comunes/footer.js";
+import { myHeader } from "./comunes/header.js";
 import { obtenerNoticias } from "./servicios/noticias.js";
 
 //Constantes y variables
@@ -8,22 +8,20 @@ const eslogan = "Empresa líder en soluciones 360º dentro de la industria de te
 const vision = "<span class='sub-titulo'>Vision</span>: Transformamos la manera en que las <strong>empresas</strong> y <strong>emprendedores</strong> construyen su presencia digital. Somos una compañía especializada en servicios de <strong>Hosting</strong>, <strong>desarrollo web</strong>, <strong>soluciones en la nube</strong> y <strong>arquitectura tecnológica personalizada</strong>, orientada a ofrecer rendimiento, seguridad y escalabilidad en cada proyecto."
 const mision = "<span class='sub-titulo'>Mision</span>: Brindar una infraestructura <strong>confiable</strong> y <strong>moderna</strong>, combinada con un equipo experto en innovación digital, para que nuestros clientes puedan enfocarse en hacer crecer su negocio mientras nosotros nos ocupamos del entorno tecnológico que lo impulsa."
 const principal = d.querySelector('main');
-const piePagina = d.querySelector('footer');
-
 
 //Header
-headerPages;
+myHeader();
 
 //codigo para el main
 const $seccionUno = d.createElement('section');
 const $seccionVisMis = d.createElement('section');
-const $seccionNoticias = d.createElement('section')
+const $seccionNoticias = d.createElement('section');
 //contenido de video
 $seccionUno.classList.add('seccion-uno', 'mb-100');
 const $subTitulo1 = d.createElement('h2');
-$subTitulo1.classList.add('titulo-seccion-uno')
+$subTitulo1.classList.add('titulo-seccion-uno');
 $subTitulo1.textContent = eslogan;
-$seccionUno.appendChild($subTitulo1)
+$seccionUno.appendChild($subTitulo1);
 
 //contenido de Mision y Vision
 $seccionVisMis.classList.add('seccion-dos');
@@ -68,9 +66,12 @@ console.log(noticias);
 $seccionNoticias.classList.add('seccion-noticias', 'mb-100');
 const $noticiasTitulo = d.createElement('div');
 $noticiasTitulo.classList.add('noticias-titulo')
+const $interno = d.createElement('div');
+$interno.classList.add('noticias-titulo-interno')
 const $subTitulo3 = d.createElement('h2');
 $subTitulo3.textContent = 'Noticias Tech';
-$noticiasTitulo.appendChild($subTitulo3);
+$interno.appendChild($subTitulo3);
+$noticiasTitulo.appendChild($interno);
 const $noticiasCont = d.createElement('div');
 $noticiasCont.classList.add('noticias-contenedor') 
 const $ul = d.createElement('ul');
@@ -105,4 +106,15 @@ $seccionNoticias.append($noticiasTitulo, $noticiasCont);
 principal.append($seccionUno, $seccionVisMis, $seccionNoticias);
 
 //Footer
-footerPages;
+myFooter();
+
+//gsap
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+
+// create the scrollSmoother before your scrollTriggers
+ScrollSmoother.create({
+
+	smooth: 4, // how long (in seconds) it takes to "catch up" to the native scroll position
+	effects: true, // looks for data-speed and data-lag attributes on elements
+	smoothTouch: 0.1 // much shorter smoothing time on touch devices (default is NO smoothing on touch devices)
+});

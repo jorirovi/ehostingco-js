@@ -42,7 +42,7 @@ function iconosPiePagina(items){
 
 const iconosPP = iconosPiePagina(itemsFooter);
 
-function myFooter() {
+export function myFooter() {
     const $tituloPie = d.createElement('h2');
     $tituloPie.classList.add('titulo-pie');
     $tituloPie.textContent = nombreEmpresa;
@@ -58,4 +58,4 @@ function myFooter() {
 
 }
 
-export const footerPages = myFooter(); 
+//export const footerPages = myFooter();

@@ -76,7 +76,7 @@ function menuModal() {
     return $menuMod;
 }
 
-function myHeader(){
+export function myHeader(){
     //codigo para el header
     cabecera.classList.add('contenedor-cabecera');
     const $linkP = d.createElement('a');
@@ -102,4 +102,4 @@ function myHeader(){
 }
 
 
-export const headerPages = myHeader();
+//export const headerPages = myHeader();
